@@ -10,7 +10,7 @@ async def check():
                 async with session.get('https://v4.api.weeat.kr/order/calendar-menu/?f_st=DELIGHT',) as resp:
                     if resp.status == 200:
                         result = await resp.json()
-                        result = result['calendar'][4]["rest"]
+                        result = result['calendar'][5]["rest"]
                         # 돌리는 주 일요일이 0임
                         # 다음주 월요일은 8
                         print(f"A코스 {result['6900A']['rest']}")
@@ -28,4 +28,4 @@ async def check():
         await asyncio.sleep(1)
 
 prc = [check()]
-asyncio.run(asyncio.wait(prc))
+asyncio.run(*prc)
